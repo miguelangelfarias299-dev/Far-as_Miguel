@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miguel Farías | Full Stack Developer Portfolio</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-dark: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        /* Estilos de Tarjetas */
+        header, section {
+            background: var(--card-dark);
+            padding: 35px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        header:hover, section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px var(--accent-glow);
+        }
+
+        /* Encabezado */
+        header {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--accent-blue);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .about-text {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Títulos de Sección */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        /* Sección de Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category h4 {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #111827;
+            color: #e2e8f0;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-blue);
+            border-radius: 50%;
+        }
+
+        /* Sección de Proyectos */
+        .project {
+            padding: 20px;
+            background: #111827;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
+
+        .project:last-child {
+            margin-bottom: 0;
+        }
+
+        .project h3 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .project-meta {
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+        }
+
+        /* Enlaces de Contacto */
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .links a {
+            background: #111827;
+            color: var(--text-primary);
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .links a:hover {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Ajustes Mobile */
+        @media (max-width: 600px) {
+            body { padding: 15px 10px; }
+            header, section { padding: 20px; }
+            h1 { font-size: 2rem; }
+            .links a { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Presentación Principal -->
+        <header>
+            <h1>Miguel Farías</h1>
+            <div class="subtitle">Full Stack Developer Student</div>
+            <p class="about-text">
+                Cursando el 1.er año de la carrera en la Universidad Provincial de Córdoba (UPC) - Capilla del Monte. 
+                Enfocado en la optimización de sistemas, el control de bases de datos relacionales y la implementación de soluciones de software libres y locales.
+            </p>
+        </header>
+
+        <!-- Tecnologías Ordenadas por Categorías -->
+        <section>
+            <h2>Tecnologías e Intereses</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Desarrollo & Datos</h4>
+                    <div class="tags-container">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Git & GitHub</span>
+                        <span class="tag">Full Stack Architecture</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Entornos & Sistemas</h4>
+                    <div class="tags-container">
+                        <span class="tag">Linux Mint</span>
+                        <span class="tag">Ollama (Local LLMs)</span>
+                        <span class="tag">Android Advanced OS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiencia y Proyectos con Diseño de Bloque -->
+        <section>
+            <h2>Proyectos y Experiencia</h2>
+            
+            <div class="project">
+                <h3>Pasantía de Práctica Profesional</h3>
+                <div class="project-meta">Entorno Corporativo Real • Forrajería de Paso</div>
+                <p>Desarrollo de competencias clave en el ámbito laboral real mediante una práctica presencial intensiva de dos meses. Enfoque directo en la organización operativa, consistencia en la ejecución de tareas y atención meticulosa al detalle.</p>
+            </div>
+
+            <div class="project">
+                <h3>Hardware Hack: Optimización de Conectividad</h3>
+                <div class="project-meta">Infraestructura & Telecomunicaciones Caseras</div>
+                <p>Diseño conceptual y ensamble analógico de una antena parabólica reflectora utilizando placas de acero. Proyecto técnico orientado a estabilizar enlaces de red móvil 4G de baja intensidad en zonas del interior, logrando un incremento medible del rendimiento de señal.</p>
+            </div>
+        </section>
+
+        <!-- Zona de Llamado a la Acción (Contacto) -->
+        <section style="text-align: center;">
+            <h2>Contacto y Redes</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">¿Tenés alguna propuesta o te interesa colaborar en un proyecto? ¡Hablemos!</p>
+            <div class="links">
+                <a href="https://github.com/tu-usuario" target="_blank">View GitHub</a>
+                <a href="https://linkedin.com/in/tu-perfil" target="_blank">Connect LinkedIn</a>
+                <a href="mailto:tu-correo@email.com">Drop an Email</a>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
